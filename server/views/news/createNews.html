@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head><meta charset="UTF-8">
+
+<title>SITAMCO - Sindicato de Trabajadores y Trabajadoras de las Artes Musicales de la Provincia de Concepción</title>
+
+<!-- To ensure proper rendering and touch zooming for mobile devices -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+<div class="col col-10 mx-auto mt-5">
+    <h1>Crear nueva noticia</h1>
+    <form action="/noticias/createNews" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="title">Títutlo</label>
+            <input type="text" class="form-control" id="title" name="title">
+        </div>
+
+        <div class="form-group">
+            <label for="image">Imágen</label>
+            <input type="file" class="form-control-file" id="image" name="image">
+        </div>
+
+        <div class="form-group">
+            <label for="body">Contenido</label>
+            <textarea class="form-control" id="body" rows="5" name="body"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    </form>
+</div>
+</body>

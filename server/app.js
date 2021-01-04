@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var subdomain = require('express-subdomain');
+var bodyParser = require('body-parser');
+
 require('./database');
 
 var indexRouter = require('./routes/index');
@@ -15,6 +17,16 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+
+// for parsing application/json
+app.use(bodyParser.json());
+
+// for parsing application/xwww-
+app.use(bodyParser.urlencoded({ extended: true }));
+//form-urlencoded
+
+// for parsing multipart/form-data
+//app.use(upload.array());
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -32,8 +44,6 @@ app.use('/users', usersRouter);
 app.use(function(req, res, next) {
   next(createError(404));
 });
-
-
 
 
 // error handler

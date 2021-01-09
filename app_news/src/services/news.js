@@ -18,3 +18,11 @@ export const getAll = () => {
       return res.json();
     })
 }
+
+export const create = news => {
+  // upload image to cdn...
+  // then...
+  return fetch(`${SERVER_URL}/noticias/createNews`, {
+    method: 'POST',
+  })
+}

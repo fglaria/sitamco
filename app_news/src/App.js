@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Card from 'react-bootstrap/Card'
 import * as News from './services/news'
+import CreateNews from './pages/news/CreateNews';
 
 const App = () => {
   const [isFetching, setIsFetching] = useState(false);
@@ -38,6 +39,7 @@ const App = () => {
 
   return(
     <div className="App">
+      <CreateNews />
       <div>{error}</div>
       <Container fluid>
         <Row className="justify-content-center">

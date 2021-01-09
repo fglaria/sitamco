@@ -1,66 +1,60 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Card from 'react-bootstrap/Card'
+import * as News from './services/news'
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isFetching: false,
-      news: ""
-    };
-  }
+const App = () => {
+  const [isFetching, setIsFetching] = useState(false);
+  const [news, setNews] = useState([]);
 
-  listNews() {
-    this.setState({ ...this.state, isFetching: true });
-    fetch('http://localhost:9000/noticias/list')
-      .then(res => {
-        return res.json();
-      })
+  const listNews = () => {
+    setIsFetching(true)
+
+    News.getAll()
       .then(json => {
         console.log(json[0]);
-        this.setState({ news: json, isFetching: false });
+        setNews(json);
+        setIsFetching(false);
       })
       .catch(err => {
-        console.log(err);
-        this.setState({ ...this.state, isFetching: false });
+        console.error(err);
+        setIsFetching(false);
       });
   }
 
-  componentDidMount() {
-    this.listNews();
+  useEffect(() => {
     //this.timer = setInterval(() => this.listNews(), 5000);
-  }
+    listNews();
 
-  componentWillUnmount() {
-    //clearInterval(this.timer);
-    this.timer = null;
-  }
+    return () => {
+      //clearInterval(this.timer);
+      // this.timer = null;
 
-  render() {
-    return(
-      <div className="App">
-        <Container fluid>
-           <Row className="justify-content-center">
-            { this.state.news &&
-              this.state.news.map((n, index) =>
-                <Card key={ index }>
-                  <Card.Img variant="top" src={ n.imgUrl } />
-                  <Card.Body>
-                    <Card.Title>{ n.title }</Card.Title>
-                    <Card.Text>{ n.body }</Card.Text>
-                  </Card.Body>
-                </Card>
-              )
-            }
-          </Row>
-        </Container>
-      </div>
-    );
-  }
+    }
+  }, [])
+
+  return(
+    <div className="App">
+      <Container fluid>
+        <Row className="justify-content-center">
+          { news &&
+            news.map((n, index) =>
+              <Card key={ index }>
+                <Card.Img variant="top" src={ n.imgUrl } />
+                <Card.Body>
+                  <Card.Title>{ n.title }</Card.Title>
+                  <Card.Text>{ n.body }</Card.Text>
+                </Card.Body>
+              </Card>
+            )
+          }
+        </Row>
+      </Container>
+    </div>
+  );
 }
 
 export default App;

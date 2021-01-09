@@ -2,7 +2,18 @@ var express = require('express');
 var path = require('path');
 var multer  = require('multer');
 
-var upload = multer({ dest: './public/images/news/' });
+
+var upload = multer({ storage: multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, "public/images/news/")
+    },
+    filename: function (req, file, cb) {
+      const uniqueSuffix = Date.now() + '_' + Math.round(Math.random() * 1E9)
+      const extension = path.extname(file.originalname).toLowerCase()
+      cb(null, uniqueSuffix + extension); // generate new name
+    }
+  })
+});
 
 var News = require('../models/News');
 
@@ -19,11 +30,14 @@ router.get('/crear', function(req, res) {
 router.post('/createNews', upload.single('image'), function(req, res) {
   var title = req.body.title;
   var body = req.body.body;
+  var imgUrl = req.file.path.replace('public\\', '').replace(/\\/g, '/');
+
+  console.log(req.file);
 
   News.create({
     title: title,
     body: body,
-    imgUrl: req.file.path
+    imgUrl: imgUrl
   }).then(function(news){
     res.send('News created: ' + news.title);
   });
@@ -36,7 +50,6 @@ router.get('/list', function(req, res, next) {
     res.json(news);
   });
 });
-
 
 
 module.exports = router;

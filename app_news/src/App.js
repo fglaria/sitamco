@@ -41,7 +41,10 @@ const App = () => {
       <div>{error}</div>
       <Container fluid>
         <Row className="justify-content-center">
-          { news &&
+          {
+            isFetching && <span>loading...</span>
+          }
+          { !isFetching &&
             news.map((n, index) =>
               <Card key={ index }>
                 <Card.Img variant="top" src={ n.imgUrl } />

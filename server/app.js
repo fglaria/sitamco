@@ -15,7 +15,7 @@ var usersRouter = require('./routes/users');
 var app = express();
 
 connect()
-  .then(console.log.bind(null, 'Success!'))
+  .then(() => console.log('Connected to database!'))
   .catch(console.log.bind(null, 'Error:'));
 
 // view engine setup

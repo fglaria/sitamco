@@ -9,18 +9,18 @@ import * as News from './services/news'
 const App = () => {
   const [isFetching, setIsFetching] = useState(false);
   const [news, setNews] = useState([]);
+  const [error, setError] = useState('');
 
   const listNews = () => {
     setIsFetching(true)
 
     News.getAll()
       .then(json => {
-        console.log(json[0]);
         setNews(json);
         setIsFetching(false);
       })
       .catch(err => {
-        console.error(err);
+        setError(err.toString());
         setIsFetching(false);
       });
   }
@@ -38,6 +38,7 @@ const App = () => {
 
   return(
     <div className="App">
+      <div>{error}</div>
       <Container fluid>
         <Row className="justify-content-center">
           { news &&

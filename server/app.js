@@ -6,13 +6,17 @@ var logger = require('morgan');
 var subdomain = require('express-subdomain');
 var bodyParser = require('body-parser');
 
-require('./database');
+var connect = require('./database');
 
 var indexRouter = require('./routes/index');
 var newsRouter = require('./routes/news');
 var usersRouter = require('./routes/users');
 
 var app = express();
+
+connect()
+  .then(console.log.bind(null, 'Success!'))
+  .catch(console.log.bind(null, 'Error:'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

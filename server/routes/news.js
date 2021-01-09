@@ -15,7 +15,7 @@ var upload = multer({ storage: multer.diskStorage({
   })
 });
 
-var News = require('../models/News');
+var News = require('../models/news');
 
 var router = express.Router();
 

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Card from 'react-bootstrap/Card'
-import * as News from './services/news'
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Card from 'react-bootstrap/Card';
+import * as News from './services/news';
 import CreateNews from './pages/news/CreateNews';
 
 const App = () => {
@@ -13,7 +13,7 @@ const App = () => {
   const [error, setError] = useState('');
 
   const listNews = () => {
-    setIsFetching(true)
+    setIsFetching(true);
 
     News.getAll()
       .then(json => {
@@ -35,7 +35,7 @@ const App = () => {
       // this.timer = null;
 
     }
-  }, [])
+  }, []);
 
   return(
     <div className="App">

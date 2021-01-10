@@ -1,5 +1,13 @@
 import React, { useRef, useState } from 'react';
 import * as News from '../../services/news';
+import { IKImage, IKContext, IKUpload } from 'imagekitio-react';
+
+// required parameter to fetch images
+const imageKit_urlEndpoint = 'https://ik.imagekit.io/chx3gwcqkpq';
+// optional parameters (needed for client-side upload)
+const imageKit_publicKey = 'public_xzI5mxY6CHkiAsm1/OgWS13N6Vs='; 
+const imageKit_authenticationEndpoint = 'http://localhost:9000/images/auth';
+
 
 const useMergingState = initialState => {
   const [state, _setState] = useState(initialState);
@@ -17,17 +25,27 @@ const CreateNews = () => {
 
   const [news, setNews] = useMergingState({
     body: '',
-    image: null,
+    imageUrl: '',
     title: '',
-  })
+  });
 
-  console.log(news)
+  const imgUploadSuccess = (res) =>{
+    setNews({ 
+      imageUrl: res.url,
+    });
+  }
+
+  const imgUploadError = (error) =>{
+    console.error(error);
+  }
+
+  console.log(news);
 
   const onSubmit = (e) => {
     e.preventDefault();
 
     News.create(news)
-  }
+  };
 
   return (
     <div className="col col-10 mx-auto mt-5">
@@ -44,11 +62,26 @@ const CreateNews = () => {
 
         <div className="form-group">
           <label htmlFor="image">Imágen</label>
-          <input
-            type="file" className="form-control-file"
-            onChange={({ target: { files } }) => setNews({ image: files[0] })}
-            ref={fileRef}
-          />
+          {/*<ErrorBoundary>*/}
+            <IKContext
+              urlEndpoint={ imageKit_urlEndpoint }
+              publicKey={ imageKit_publicKey }
+              authenticationEndpoint={ imageKit_authenticationEndpoint }
+            >
+              {/*<IKImage path={  } />*/}
+              <IKUpload 
+                fileName=""
+                className="form-control-file"
+                onError={imgUploadError}
+                onSuccess={imgUploadSuccess}
+              />
+            {/*<input
+              type="file" className="form-control-file"
+              onChange={({ target: { files } }) => setNews({ image: files[0] })}
+              ref={fileRef}
+            />*/}
+            </IKContext>
+          {/*</ErrorBoundary>*/}
         </div>
 
         <div className="form-group">

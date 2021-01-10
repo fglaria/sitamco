@@ -49,7 +49,7 @@ const App = () => {
           { !isFetching &&
             news.map((n, index) =>
               <Card key={ index }>
-                <Card.Img variant="top" src={ n.imgUrl } />
+                <Card.Img variant="top" src={ n.image.url } />
                 <Card.Body>
                   <Card.Title>{ n.title }</Card.Title>
                   <Card.Text>{ n.body }</Card.Text>

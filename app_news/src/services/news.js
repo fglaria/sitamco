@@ -11,7 +11,7 @@ const fakeNewses = [
 ];
 
 export const getAll = () => {
-  if (process.env.REACT_APP_DEBUG == 1) {
+  if (process.env.REACT_APP_DEBUG === 1) {
     return Promise.resolve(fakeNewses)
   }
 

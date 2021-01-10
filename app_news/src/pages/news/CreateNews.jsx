@@ -72,6 +72,8 @@ const CreateNews = () => {
               <IKUpload 
                 fileName="news_"
                 className="form-control-file"
+                tags={["news"]}
+                folder="news"
                 onError={imgUploadError}
                 onSuccess={imgUploadSuccess}
               />

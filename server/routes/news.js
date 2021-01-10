@@ -27,12 +27,11 @@ router.get('/crear', function(req, res) {
   res.sendFile(path.resolve("views/news/createNews.html"))
 });
 
-router.post('/createNews', upload.single('image'), function(req, res) {
+router.post('/createNews', function(req, res) {
+  console.log(req.body);
   var title = req.body.title;
   var body = req.body.body;
-  var imgUrl = req.file.path.replace('public\\', '').replace(/\\/g, '/');
-
-  console.log(req.file);
+  var imgUrl = req.body.imageUrl;
 
   News.create({
     title: title,

@@ -29,14 +29,11 @@ router.get('/crear', function(req, res) {
 
 router.post('/createNews', function(req, res) {
   console.log(req.body);
-  var title = req.body.title;
-  var body = req.body.body;
-  var imgUrl = req.body.imageUrl;
 
   News.create({
-    title: title,
-    body: body,
-    imgUrl: imgUrl
+    title: req.body.title,
+    body: req.body.body,
+    image: req.body.image
   }).then(function(news){
     res.send('News created: ' + news.title);
   });

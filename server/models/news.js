@@ -4,7 +4,7 @@ var News = new mongoose.Schema({
   title: { type: String, required: true },
   author: { type: String },
   body: { type: String, required: true },
-  imgUrl: { type: String },
+  image: { type: Object },
   created_at : { type: Date, default: Date.now },
   modified_at : { type: Date },
   deleted_at : { type: Date },

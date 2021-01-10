@@ -25,13 +25,13 @@ const CreateNews = () => {
 
   const [news, setNews] = useMergingState({
     body: '',
-    imageUrl: '',
+    image: null,
     title: '',
   });
 
   const imgUploadSuccess = (res) =>{
     setNews({ 
-      imageUrl: res.url,
+      image: res,
     });
   }
 
@@ -39,7 +39,7 @@ const CreateNews = () => {
     console.error(error);
   }
 
-  console.log(news);
+  // console.log(news);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -70,7 +70,7 @@ const CreateNews = () => {
             >
               {/*<IKImage path={  } />*/}
               <IKUpload 
-                fileName=""
+                fileName="news_"
                 className="form-control-file"
                 onError={imgUploadError}
                 onSuccess={imgUploadSuccess}

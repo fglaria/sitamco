@@ -1,7 +1,7 @@
 var express = require('express');
-var router = express.Router();
-
 var path = require('path');
+
+var router = express.Router();
 
 /* GET home page 1. */
 router.get('/', function(req, res, next) {

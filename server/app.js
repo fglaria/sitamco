@@ -11,6 +11,7 @@ var connect = require('./database');
 var indexRouter = require('./routes/index');
 var newsRouter = require('./routes/news');
 var usersRouter = require('./routes/users');
+var imagesRouter = require('./routes/images');
 
 var app = express();
 
@@ -41,6 +42,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/noticias', newsRouter);
 app.use('/users', usersRouter);
+app.use('/images', imagesRouter);
 
 //app.use(subdomain('noticias', newsRouter));
 

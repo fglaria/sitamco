@@ -52,7 +52,7 @@ const CreateNews = () => {
       <h1>Crear nueva noticia</h1>
       <form onSubmit={onSubmit}>
         <div className="form-group">
-          <label htmlFor="title">Títutlo</label>
+          <label htmlFor="title">Título</label>
           <input
             type="text" className="form-control"
             onChange={({ target: { value } }) => setNews({ title: value })}

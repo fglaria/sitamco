@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+import './App.css'
 import {
   BrowserRouter as Router,
   Switch,
@@ -6,7 +7,7 @@ import {
   Link,
   useParams,
   useRouteMatch
-} from "react-router-dom";
+} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav'
@@ -28,6 +29,7 @@ export default function Home() {
       <div>
         <NavbarHeader />
         <MainContent />
+        <Footer />
       </div>
     </Router>
   );
@@ -46,9 +48,11 @@ const NavbarHeader = () => {
       </div>
       <Navbar.Collapse id="header-menu">
         <Nav className="ml-auto font-weight-bold">
-          <Link className="nav-link" to="/">Main</Link>
-          <Link className="nav-link" to="/topics">Topics</Link>
-          <Link className="nav-link" to="/noticias">Noticias</Link>
+          <Link className="nav-link" to="/somos">SOMOS</Link>
+          <Link className="nav-link" to="/beneficios">BENEFICIOS</Link>
+          <Link className="nav-link" to="/unete">ÚNETE</Link>
+          <Link className="nav-link" to="/noticias">NOTICIAS</Link>
+          <Link className="nav-link" to="/contacto">CONTACTO</Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
@@ -61,15 +65,45 @@ const MainContent = () => {
       <Route exact path="/">
         <Main />
       </Route>
-      <Route path="/topics">
-        <Topics />
+      <Route path="/somos">
+        <WeAre />
+      </Route>
+      <Route path="/beneficios">
+        <Benefits />
+      </Route>
+      <Route path="/unete">
+        <JoinUs />
       </Route>
       <Route path="/noticias">
         <News />
       </Route>
+      <Route path="/contacto">
+        <Contact />
+      </Route>
     </Switch>
   );
 };
+
+const Footer = () => {
+  return (
+    <footer className="footer mt-auto py-3">
+      <Nav className="justify-content-center">
+        <Nav.Link className="pl-0" href="https://www.facebook.com/sitamco/">
+          F
+          {/*<img src="images/logos/facebook.png" alt="Facebook" height="25">*/}
+        </Nav.Link>
+        <Nav.Link className="pl-0" href="https://www.instagram.com/sitamcocl/">
+          I
+          {/*<img src="images/logos/instagram.png" alt="Instagram" height="25">*/}
+        </Nav.Link>
+        <Nav.Link className="pl-0" href="https://www.twitter.com/sitamcocl/">
+          T
+          {/*<img src="images/logos/twitter.png" alt="Twitter" height="25">*/}
+        </Nav.Link>
+      </Nav>
+    </footer>
+  );
+}
 
 function Main() {
   return (
@@ -79,7 +113,7 @@ function Main() {
   );
 }
 
-function Topics() {
+const WeAre = () => {
   // The `path` lets us build <Route> paths that are
   // relative to the parent route, while the `url` lets
   // us build relative links.
@@ -87,7 +121,7 @@ function Topics() {
 
   return (
     <div>
-      <h2>Topics</h2>
+      <h2>Somos</h2>
       <ul>
         <li>
           <Link to={`${url}/rendering`}>Rendering with React</Link>
@@ -112,6 +146,7 @@ function Topics() {
   );
 }
 
+
 function Topic() {
   // The <Route> that rendered this component has a
   // path of `/topics/:topicId`. The `:topicId` portion
@@ -122,6 +157,30 @@ function Topic() {
   return (
     <div>
       <h3>{topicId}</h3>
+    </div>
+  );
+}
+
+const Benefits = () => {
+  return (
+    <div>
+      <h2>Beneficios</h2>
+    </div>
+  );
+}
+
+const JoinUs = () => {
+  return (
+    <div>
+      <h2>Unete</h2>
+    </div>
+  );
+}
+
+const Contact = () => {
+  return (
+    <div>
+      <h2>Contacto</h2>
     </div>
   );
 }

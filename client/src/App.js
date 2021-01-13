@@ -1,5 +1,9 @@
 import React from 'react';
 import './App.css'
+import sitamco_logo from'./img/logos/sitamco_sm.png'
+import facebook_logo from'./img/logos/facebook.png'
+import instagram_logo from'./img/logos/instagram.png'
+import twitter_logo from'./img/logos/twitter.png'
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,6 +17,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav'
 
 import News from './routes/News';
+import Contact from './routes/home/Contact';
+
 
 // Since routes are regular React components, they
 // may be rendered anywhere in the app, including in
@@ -42,7 +48,7 @@ const NavbarHeader = () => {
         <Navbar.Toggle aria-controls="header-menu" />
         <Navbar.Brand>
           <Link to="/">
-            HOME
+            <img src={ sitamco_logo } alt="SITAMCO" width="150" height="40"/>
           </Link>
         </Navbar.Brand>
       </div>
@@ -89,16 +95,13 @@ const Footer = () => {
     <footer className="footer mt-auto py-3">
       <Nav className="justify-content-center">
         <Nav.Link className="pl-0" href="https://www.facebook.com/sitamco/">
-          F
-          {/*<img src="images/logos/facebook.png" alt="Facebook" height="25">*/}
+          <img src={ facebook_logo } alt="Facebook" height="25"/>
         </Nav.Link>
         <Nav.Link className="pl-0" href="https://www.instagram.com/sitamcocl/">
-          I
-          {/*<img src="images/logos/instagram.png" alt="Instagram" height="25">*/}
+          <img src={ instagram_logo }alt="Instagram" height="25"/>
         </Nav.Link>
         <Nav.Link className="pl-0" href="https://www.twitter.com/sitamcocl/">
-          T
-          {/*<img src="images/logos/twitter.png" alt="Twitter" height="25">*/}
+          <img src={ twitter_logo } alt="Twitter" height="25"/>
         </Nav.Link>
       </Nav>
     </footer>
@@ -177,10 +180,4 @@ const JoinUs = () => {
   );
 }
 
-const Contact = () => {
-  return (
-    <div>
-      <h2>Contacto</h2>
-    </div>
-  );
-}
+

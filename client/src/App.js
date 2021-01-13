@@ -8,7 +8,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
+  NavLink,
   useParams,
   useRouteMatch
 } from 'react-router-dom';
@@ -47,18 +47,18 @@ const NavbarHeader = () => {
       <div className="navbar-header">
         <Navbar.Toggle aria-controls="header-menu" />
         <Navbar.Brand>
-          <Link to="/">
+          <NavLink to="/">
             <img src={ sitamco_logo } alt="SITAMCO" width="150" height="40"/>
-          </Link>
+          </NavLink>
         </Navbar.Brand>
       </div>
       <Navbar.Collapse id="header-menu">
         <Nav className="ml-auto font-weight-bold">
-          <Link className="nav-link" to="/somos">SOMOS</Link>
-          <Link className="nav-link" to="/beneficios">BENEFICIOS</Link>
-          <Link className="nav-link" to="/unete">ÚNETE</Link>
-          <Link className="nav-link" to="/noticias">NOTICIAS</Link>
-          <Link className="nav-link" to="/contacto">CONTACTO</Link>
+          <NavLink className="nav-link" to="/somos">SOMOS</NavLink>
+          <NavLink className="nav-link" to="/beneficios">BENEFICIOS</NavLink>
+          <NavLink className="nav-link" to="/unete">ÚNETE</NavLink>
+          <NavLink className="nav-link" to="/noticias">NOTICIAS</NavLink>
+          <NavLink className="nav-link" to="/contacto">CONTACTO</NavLink>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
@@ -127,13 +127,13 @@ const WeAre = () => {
       <h2>Somos</h2>
       <ul>
         <li>
-          <Link to={`${url}/rendering`}>Rendering with React</Link>
+          <NavLink to={`${url}/rendering`}>Rendering with React</NavLink>
         </li>
         <li>
-          <Link to={`${url}/components`}>Components</Link>
+          <NavLink to={`${url}/components`}>Components</NavLink>
         </li>
         <li>
-          <Link to={`${url}/props-v-state`}>Props v. State</Link>
+          <NavLink to={`${url}/props-v-state`}>Props v. State</NavLink>
         </li>
       </ul>
 

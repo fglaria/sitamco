@@ -12,6 +12,7 @@ import twitter_logo from'./img/logos/twitter.png';
 
 import WeAre from './routes/home/WeAre';
 import JoinUs from './routes/home/JoinUs';
+import Benefits from './routes/home/Benefits';
 import News from './routes/News';
 import Contact from './routes/home/Contact';
 
@@ -106,6 +107,7 @@ function Main() {
   );
 }
 
+
 const WeAre2 = () => {
   // The `path` lets us build <Route> paths that are
   // relative to the parent route, while the `url` lets
@@ -139,7 +141,6 @@ const WeAre2 = () => {
   );
 }
 
-
 function Topic() {
   // The <Route> that rendered this component has a
   // path of `/topics/:topicId`. The `:topicId` portion
@@ -150,14 +151,6 @@ function Topic() {
   return (
     <div>
       <h3>{topicId}</h3>
-    </div>
-  );
-}
-
-const Benefits = () => {
-  return (
-    <div>
-      <h2>Beneficios</h2>
     </div>
   );
 }

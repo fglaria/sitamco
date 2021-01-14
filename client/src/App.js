@@ -16,6 +16,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav'
 
+import WeAre from './routes/home/WeAre';
 import News from './routes/News';
 import Contact from './routes/home/Contact';
 
@@ -116,7 +117,7 @@ function Main() {
   );
 }
 
-const WeAre = () => {
+const WeAre2 = () => {
   // The `path` lets us build <Route> paths that are
   // relative to the parent route, while the `url` lets
   // us build relative links.

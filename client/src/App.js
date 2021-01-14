@@ -1,34 +1,20 @@
 import React from 'react';
-import './App.css'
-import sitamco_logo from'./img/logos/sitamco_sm.png'
-import facebook_logo from'./img/logos/facebook.png'
-import instagram_logo from'./img/logos/instagram.png'
-import twitter_logo from'./img/logos/twitter.png'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  NavLink,
-  useParams,
-  useRouteMatch
-} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, NavLink, useParams, useRouteMatch } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav'
+import Nav from 'react-bootstrap/Nav';
+
+import './App.css';
+import sitamco_logo from'./img/logos/sitamco_sm.png';
+import facebook_logo from'./img/logos/facebook.png';
+import instagram_logo from'./img/logos/instagram.png';
+import twitter_logo from'./img/logos/twitter.png';
 
 import WeAre from './routes/home/WeAre';
+import JoinUs from './routes/home/JoinUs';
 import News from './routes/News';
 import Contact from './routes/home/Contact';
 
-
-// Since routes are regular React components, they
-// may be rendered anywhere in the app, including in
-// child elements.
-//
-// This helps when it's time to code-split your app
-// into multiple bundles because code-splitting a
-// React Router app is the same as code-splitting
-// any other React app.
 
 export default function Home() {
   return (
@@ -86,6 +72,9 @@ const MainContent = () => {
       </Route>
       <Route path="/contacto">
         <Contact />
+      </Route>
+      <Route exact path="/test">
+        <WeAre2 />
       </Route>
     </Switch>
   );
@@ -172,13 +161,3 @@ const Benefits = () => {
     </div>
   );
 }
-
-const JoinUs = () => {
-  return (
-    <div>
-      <h2>Unete</h2>
-    </div>
-  );
-}
-
-

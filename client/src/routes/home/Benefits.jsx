@@ -22,11 +22,9 @@ const Benefits = () => {
           <CardDeck>
           
             <Card>
-              <Card.Header>
-                <a href="https://cdbaby.com/" target="_blank">
-                  cdbaby
-                </a>
-              </Card.Header>
+              <a href="https://cdbaby.com/" target="_blank" className="mt-3">
+                cdbaby
+              </a>
               <Card.Body>
                 <h5>Distribuidora cdbaby</h5>
                 <p>Subir gratis tu SP, EP o LP a plataformas digitales</p>
@@ -34,11 +32,9 @@ const Benefits = () => {
             </Card>
 
             <Card>
-              <Card.Header>
-                <a href="https://servicios.portaldisc.com/radios/" target="_blank">
-                  <h5>Portaldisc</h5>
-                </a>
-              </Card.Header>
+              <a href="https://servicios.portaldisc.com/radios/" target="_blank" className="mt-3">
+                <h5>Portaldisc</h5>
+              </a>
               <Card.Body>
                 <h5>Portaldisc: Envío a radios y medios</h5>
                 <p>30% descuento para envío de musica a radios y medios de comunicación</p>

@@ -13,7 +13,7 @@ const News = () => {
 
   return(
     <div className="News text-center">
-      <h3>NOTICIAS</h3>
+      <h3 className="mt-3">NOTICIAS</h3>
       <Nav className="justify-content-center">
         <NavLink className="mr-3" to={ `${url}/listado` }>
           Listado

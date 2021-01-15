@@ -2,10 +2,12 @@ import React, { useEffect, useRef, useState } from 'react';
 import * as NewsService from '../../services/news';
 import { css } from '@emotion/core';
 import BeatLoader from 'react-spinners/BeatLoader';
+import TextTruncate from 'react-text-truncate';
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Card from 'react-bootstrap/Card';
+import CardDeck from 'react-bootstrap/CardDeck';
 import Button from 'react-bootstrap/Button';
 
 
@@ -55,18 +57,27 @@ const LoadNews = () => {
       <Container fluid>
         <Row className="justify-content-center">
           <BeatLoader css={ override } size={30} color={"#000000"} loading={ isFetching } />
-          { !isFetching &&
-            news.map((n, index) =>
-              <Card className="text-left" key={ index }>
-                <Card.Img variant="top" src={ n.image.url } />
-                <Card.Header>{ n.title }</Card.Header>
-                <Card.Body>
-                  <Card.Text>{ n.body }</Card.Text>
-                  <Button variant="primary">Leer noticia</Button>
-                </Card.Body>
-              </Card>
-            )
+          <CardDeck>
+          { 
+              !isFetching &&
+              news.map((n, index) =>
+                <Card className="text-left news-card" key={ index }>
+                  <div className="div-img">
+                    <Card.Img variant="top" src={ n.image.url } />
+                  </div>
+                  <Card.Header>
+                    <TextTruncate line={ 1 } truncateText="…" text={ n.title } />
+                  </Card.Header>
+                  <Card.Body>
+                    <Card.Text>
+                      <TextTruncate line={ 1 } truncateText="…" text={ n.body } />
+                    </Card.Text>
+                    <Button variant="primary">Leer noticia</Button>
+                  </Card.Body>
+                </Card>
+              )
           }
+          </CardDeck>
         </Row>
       </Container>
     </div>

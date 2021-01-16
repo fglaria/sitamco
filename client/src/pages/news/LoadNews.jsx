@@ -6,6 +6,7 @@ import TextTruncate from 'react-text-truncate';
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
 import Button from 'react-bootstrap/Button';
@@ -55,29 +56,27 @@ const LoadNews = () => {
     <div>
       <div>{ error }</div>
       <Container fluid>
-        <Row className="justify-content-center">
+        <Row xl="3" lg="3" md="2" xs="1" className="mb-5">
           <BeatLoader css={ override } size={30} color={"#000000"} loading={ isFetching } />
-          <CardDeck>
           { 
-              !isFetching &&
-              news.map((n, index) =>
-                <Card className="text-left news-card" key={ index }>
-                  <div className="div-img">
+            !isFetching &&
+            news.map((n, index) =>
+              <Col className="mb-4">
+                <Card className="text-left" key={ n._id }>
+                  <div className="div-img row align-self-center">
                     <Card.Img variant="top" src={ n.image.url } />
                   </div>
                   <Card.Header>
                     <TextTruncate line={ 1 } truncateText="…" text={ n.title } />
                   </Card.Header>
                   <Card.Body>
-                    <Card.Text>
-                      <TextTruncate line={ 1 } truncateText="…" text={ n.body } />
-                    </Card.Text>
-                    <Button variant="primary">Leer noticia</Button>
+                    <TextTruncate className="card-text" line={ 1 } truncateText="…" text={ n.body } />
+                    <Button className="mt-2" variant="primary">Leer noticia</Button>
                   </Card.Body>
                 </Card>
-              )
+              </Col>
+            )
           }
-          </CardDeck>
         </Row>
       </Container>
     </div>

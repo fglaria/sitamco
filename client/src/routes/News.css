@@ -2,11 +2,14 @@
   text-align: left;
 }
 
-.news-card {
-  max-width: 380px;
+.div-img {
+  height: 260px;
 }
 
-.div-img {
-  width: 380px;
-  height: 260px;
+.div-img.row {
+  margin: 0px !important;
+}
+
+.div-img > img {
+  object-fit: cover;
 }

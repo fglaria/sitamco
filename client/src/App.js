@@ -97,7 +97,7 @@ const Footer = () => {
       </Nav>
     </footer>
   );
-}
+};
 
 function Main() {
   return (
@@ -139,7 +139,7 @@ const WeAre2 = () => {
       </Switch>
     </div>
   );
-}
+};
 
 function Topic() {
   // The <Route> that rendered this component has a

@@ -1,8 +1,7 @@
-import React, { useRef, useState } from 'react';
-import uuid from 'react-uuid'
-
+import React, { useState } from 'react';
+import uuid from 'react-uuid';
 import * as News from '../../services/news';
-import { IKImage, IKContext, IKUpload } from 'imagekitio-react';
+import { IKContext, IKUpload } from 'imagekitio-react';
 
 // required parameter to fetch images
 const imageKit_urlEndpoint = 'https://ik.imagekit.io/chx3gwcqkpq';
@@ -16,15 +15,13 @@ const useMergingState = initialState => {
 
   const setState = newState => _setState(oldState => ({
     ...oldState,
-    ...newState
-  }))
+    ...newState,
+  }));
 
   return [state, setState];
-}
+};
 
 const CreateNews = () => {
-  const fileRef = useRef();
-
   const [news, setNews] = useMergingState({
     body: '',
     image: null,
@@ -35,18 +32,18 @@ const CreateNews = () => {
     setNews({ 
       image: res,
     });
-  }
+  };
 
   const imgUploadError = (error) =>{
     console.error(error);
-  }
+  };
 
   // console.log(news);
 
   const onSubmit = (e) => {
     e.preventDefault();
 
-    News.create(news)
+    News.create(news);
   };
 
   return (

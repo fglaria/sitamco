@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
@@ -199,6 +199,6 @@ const WeAre = () => {
       </Row>
     </Container>
   );
-}
+};
 
 export default WeAre;

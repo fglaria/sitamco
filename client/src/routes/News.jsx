@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Switch, Route, NavLink, useParams, useRouteMatch } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Switch, Route, NavLink, useParams, useRouteMatch } from 'react-router-dom';
 
 import './News.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -34,7 +34,7 @@ const News = () => {
       
     </div>
   );
-}
+};
 
 const Switcher = () => {
   let { option } = useParams();
@@ -58,7 +58,6 @@ const Switcher = () => {
         </div>
       );
   };
-
-}
+};
 
 export default News;

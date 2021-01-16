@@ -56,7 +56,7 @@ const LoadNews = () => {
     <div>
       <div>{ error }</div>
       <Container fluid>
-        <Row xl="3" lg="3" md="2" xs="1" className="mb-5">
+        <Row xl="3" lg="3" md="2" xs="1" className="mb-5 mx-5">
           <BeatLoader css={ override } size={30} color={"#000000"} loading={ isFetching } />
           { 
             !isFetching &&

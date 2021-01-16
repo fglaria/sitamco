@@ -1,4 +1,6 @@
 import React, { useRef, useState } from 'react';
+import uuid from 'react-uuid'
+
 import * as News from '../../services/news';
 import { IKImage, IKContext, IKUpload } from 'imagekitio-react';
 
@@ -72,10 +74,11 @@ const CreateNews = () => {
               <IKUpload 
                 fileName="news_"
                 className="form-control-file"
-                tags={["news"]}
+                tags={ ["news"] }
+                token={ uuid() }
                 folder="news"
-                onError={imgUploadError}
-                onSuccess={imgUploadSuccess}
+                onError={ imgUploadError }
+                onSuccess={ imgUploadSuccess }
               />
             {/*<input
               type="file" className="form-control-file"

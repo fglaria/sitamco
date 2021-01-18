@@ -57,8 +57,8 @@ const LoadNews = () => {
           { 
             !isFetching &&
             news.map((n, index) =>
-              <Col className="mb-4">
-                <Card className="text-left" key={ n._id }>
+              <Col className="mb-4" key={ n._id }>
+                <Card className="text-left">
                   <div className="div-img row align-self-center">
                     <Card.Img variant="top" src={ n.image.url } />
                   </div>

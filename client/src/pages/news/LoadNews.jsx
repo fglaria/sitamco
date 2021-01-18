@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as NewsService from '../../services/news';
 import { css } from '@emotion/core';
 import BeatLoader from 'react-spinners/BeatLoader';
@@ -8,7 +8,6 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
-import CardDeck from 'react-bootstrap/CardDeck';
 import Button from 'react-bootstrap/Button';
 
 
@@ -17,9 +16,6 @@ const LoadNews = () => {
 
   const [news, setNews] = useState([]);
   const [error, setError] = useState('');
-
-  let [loading, setLoading] = useState(true);
-  let [color, setColor] = useState("#ffffff");
 
   const listNews = () => {
     setIsFetching(true);
@@ -33,7 +29,7 @@ const LoadNews = () => {
         setError(err.toString());
         setIsFetching(false);
       });
-  }
+  };
 
   const override = css`
     display: block;
@@ -49,7 +45,7 @@ const LoadNews = () => {
       //clearInterval(this.timer);
       // this.timer = null;
 
-    }
+    };
   }, []);
 
   return(
@@ -74,7 +70,7 @@ const LoadNews = () => {
                     <Button className="mt-2" variant="primary">Leer noticia</Button>
                   </Card.Body>
                 </Card>
-              </Col>
+              </Col>,
             )
           }
         </Row>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 // import cdbaby_logo from '../../img/logos/cdbaby.png';
 // import portaldisc_logo from '../../img/logos/portaldisc.png';
@@ -22,7 +22,7 @@ const Benefits = () => {
           <CardDeck>
           
             <Card>
-              <a href="https://cdbaby.com/" target="_blank" className="mt-3">
+              <a href="https://cdbaby.com/" rel="noreferrer" target="_blank" className="mt-3">
                 cdbaby
               </a>
               <Card.Body>
@@ -32,7 +32,7 @@ const Benefits = () => {
             </Card>
 
             <Card>
-              <a href="https://servicios.portaldisc.com/radios/" target="_blank" className="mt-3">
+              <a href="https://servicios.portaldisc.com/radios/" rel="noreferrer" target="_blank" className="mt-3">
                 <h5>Portaldisc</h5>
               </a>
               <Card.Body>

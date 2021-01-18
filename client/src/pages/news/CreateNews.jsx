@@ -3,10 +3,12 @@ import uuid from 'react-uuid';
 import * as News from '../../services/news';
 import { IKContext, IKUpload } from 'imagekitio-react';
 
+require('dotenv').config();
+
 // required parameter to fetch images
-const imageKit_urlEndpoint = 'https://ik.imagekit.io/chx3gwcqkpq';
+const imageKit_urlEndpoint = process.env.REACT_APP_IMAGEKIT_URL_END_POINT;
 // optional parameters (needed for client-side upload)
-const imageKit_publicKey = 'public_xzI5mxY6CHkiAsm1/OgWS13N6Vs='; 
+const imageKit_publicKey = process.env.REACT_APP_IMAGEKIT_PUBLIC_KEY; 
 const imageKit_authenticationEndpoint = 'http://localhost:9000/images/auth';
 
 

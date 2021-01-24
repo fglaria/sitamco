@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import uuid from 'react-uuid';
 import * as NewsService from '../../services/news';
-import { IKContext, IKUpload } from 'imagekitio-react';
+// eslint-disable-next-line
+import { IKContext, IKImage, IKUpload } from 'imagekitio-react';
 
 require('dotenv').config();
 
@@ -9,8 +10,9 @@ require('dotenv').config();
 const imageKit_urlEndpoint = process.env.REACT_APP_IMAGEKIT_URL_END_POINT;
 // optional parameters (needed for client-side upload)
 const imageKit_publicKey = process.env.REACT_APP_IMAGEKIT_PUBLIC_KEY; 
-const imageKit_authenticationEndpoint = 'http://localhost:9000/images/auth';
+const server_authenticationEndpoint = process.env.REACT_APP_SERVER_AUTHENTICATION_ENDPOINT;
 
+console.log(server_authenticationEndpoint);
 
 const useMergingState = initialState => {
   const [state, _setState] = useState(initialState);
@@ -31,6 +33,7 @@ const CreateNews = () => {
   });
 
   const imgUploadSuccess = (res) =>{
+    console.log(res);
     setNews({ 
       image: res,
     });
@@ -57,7 +60,7 @@ const CreateNews = () => {
           <input
             type="text" className="form-control"
             onChange={({ target: { value } }) => setNews({ title: value })}
-            value={news.title}
+            value={ news.title }
           />
         </div>
 
@@ -67,9 +70,12 @@ const CreateNews = () => {
             <IKContext
               urlEndpoint={ imageKit_urlEndpoint }
               publicKey={ imageKit_publicKey }
-              authenticationEndpoint={ imageKit_authenticationEndpoint }
+              authenticationEndpoint={ server_authenticationEndpoint }
             >
-              {/*<IKImage path={  } />*/}
+              {/* {<IKImage 
+                urlEndpoint={ imageKit_urlEndpoint }
+                src={ news.img && news.img.url }
+              />} */}
               <IKUpload 
                 fileName="news_"
                 className="form-control-file"

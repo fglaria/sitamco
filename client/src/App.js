@@ -74,7 +74,7 @@ const MainContent = () => {
       <Route path="/contacto">
         <Contact />
       </Route>
-      <Route exact path="/test">
+      <Route path="/test">
         <WeAre2 />
       </Route>
     </Switch>

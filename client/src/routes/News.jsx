@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Switch, Route, NavLink, useParams, useRouteMatch } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, NavLink, useParams, useRouteMatch } from 'react-router-dom';
 
 import './News.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -14,21 +14,20 @@ const News = () => {
   return(
     <div className="News text-center">
       <h3 className="mt-3">NOTICIAS</h3>
-      <Nav className="justify-content-center">
-        <NavLink className="mr-3" to={ `${url}/listado` }>
+      <Nav className="justify-content-around">
+        <NavLink to={ `${ url }/listado` }>
           Listado
         </NavLink>
-        <NavLink to={ `${url}/crear` }>
+        <NavLink to={ `${ url }/crear` }>
           Crear
         </NavLink>
       </Nav>
 
+      <hr />
+
       <Switch>
-        <Route exact path={path}>
-          <LoadNews />
-        </Route>
-        <Route path={`${path}/:option`}>
-          <Switcher />
+        <Route path={`${ path }/:option`}>
+          <NewsSwitcher />
         </Route>
       </Switch>
       
@@ -36,27 +35,22 @@ const News = () => {
   );
 };
 
-const Switcher = () => {
+const NewsSwitcher = () => {
   let { option } = useParams();
 
   switch(option){
     case "listado":
       return(
-        <LoadNews />
-      );
-
-    case "crear":
-      return(
-        <CreateNews />
-      );
-
-    default:
-      return(
-        <div>
-          <h3>Invalid option</h3>
-          <p>{ option }</p>
-        </div>
-      );
+          <div><LoadNews /></div>
+        );
+      case "crear":
+        return(
+          <div><CreateNews /></div>
+        );
+      default:
+        return(
+          <div>Invalid option: { option }</div>
+        );
   };
 };
 

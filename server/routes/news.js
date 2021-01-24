@@ -28,10 +28,6 @@ router.get('/crear', function(req, res) {
 });
 
 router.post('/createNews', function(req, res) {
-  // res.setHeader('Access-Control-Allow-Origin', '*');
-  // res.setHeader('Access-Control-Allow-Credentials', 'true');
-  console.log(req.body);
-
   News.create({
     title: req.body.title,
     body: req.body.body,

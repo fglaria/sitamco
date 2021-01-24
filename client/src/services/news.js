@@ -26,12 +26,9 @@ export const create = news => {
   fetch(`${SERVER_URL}/noticias/createNews`, {
     method: 'POST',
     headers: {
-      // 'Access-Control-Allow-Origin': 'http://localhost:3000',
-      // 'Access-Control-Allow-Credentials': 'true',
       'Content-Type': 'application/json;charset=utf-8',
     },
     body: JSON.stringify(news),
-    mode: 'no-cors',
   })
   .then(response => {
     console.log(response);

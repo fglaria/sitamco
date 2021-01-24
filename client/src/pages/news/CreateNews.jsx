@@ -12,8 +12,6 @@ const imageKit_urlEndpoint = process.env.REACT_APP_IMAGEKIT_URL_END_POINT;
 const imageKit_publicKey = process.env.REACT_APP_IMAGEKIT_PUBLIC_KEY; 
 const server_authenticationEndpoint = process.env.REACT_APP_SERVER_AUTHENTICATION_ENDPOINT;
 
-console.log(server_authenticationEndpoint);
-
 const useMergingState = initialState => {
   const [state, _setState] = useState(initialState);
 

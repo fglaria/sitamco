@@ -22,6 +22,7 @@ export const getAll = () => {
 };
 
 export const create = news => {
+  console.log(news);
   fetch(`${SERVER_URL}/noticias/createNews`, {
     method: 'POST',
     headers: {
@@ -30,6 +31,7 @@ export const create = news => {
       'Content-Type': 'application/json;charset=utf-8',
     },
     body: JSON.stringify(news),
+    mode: 'no-cors',
   })
   .then(response => {
     console.log(response);

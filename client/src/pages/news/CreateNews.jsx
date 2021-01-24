@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import uuid from 'react-uuid';
-import * as News from '../../services/news';
+import * as NewsService from '../../services/news';
 import { IKContext, IKUpload } from 'imagekitio-react';
 
 require('dotenv').config();
@@ -45,7 +45,7 @@ const CreateNews = () => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    News.create(news);
+    NewsService.create(news);
   };
 
   return (

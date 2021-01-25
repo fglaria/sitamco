@@ -37,11 +37,19 @@ router.post('/createNews', function(req, res) {
   });
 });
 
-router.get('/list', function(req, res, next) {
+router.get('/list', function(req, res) {
   News.find({
   }).then(function(news){
-    res.header({ 'Access-Control-Allow-Origin': '*' });
     res.json(news);
+  });
+});
+
+router.get('/read/:id', function(req, res) {
+  News.findById(req.params.id)
+  .then(function(oneNews){
+    res.json(oneNews);
+  }).catch(function(err){       // NOT SURE THIS IS THE WAY TO HANDLE ERROR
+    res.send(err);
   });
 });
 

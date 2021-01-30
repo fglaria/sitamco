@@ -1,12 +1,12 @@
 import React from 'react';
 // eslint-disable-next-line
 import { BrowserRouter as Router, Switch, Route, NavLink, useParams, useRouteMatch } from 'react-router-dom';
-
 import './News.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Nav from 'react-bootstrap/Nav';
 
 import LoadNews from '../pages/news/LoadNews';
+import LoadOne from '../pages/news/LoadOne';
 import CreateNews from '../pages/news/CreateNews';
 
 const News = () => {
@@ -27,32 +27,19 @@ const News = () => {
       <hr />
 
       <Switch>
-        <Route path={`${ path }/:option`}>
-          <NewsSwitcher />
+        <Route path={ `${ path }/listado` }>
+          <LoadNews />
+        </Route>
+        <Route path={ `${ path }/leer/:id` }>
+          <LoadOne />
+        </Route>
+        <Route path={ `${ path }/crear` }>
+          <CreateNews />
         </Route>
       </Switch>
       
     </div>
   );
-};
-
-const NewsSwitcher = () => {
-  let { option } = useParams();
-
-  switch(option){
-    case "listado":
-      return(
-          <div><LoadNews /></div>
-        );
-      case "crear":
-        return(
-          <div><CreateNews /></div>
-        );
-      default:
-        return(
-          <div>Invalid option: { option }</div>
-        );
-  };
 };
 
 export default News;
